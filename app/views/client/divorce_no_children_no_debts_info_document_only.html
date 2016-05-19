@@ -1,0 +1,84 @@
+<div class="main">
+  <h1><b>Simple divorce without children, debts or property documents only</b></h1>
+  <hr>
+    <div align="center">
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <p align="center" bgcolor="#9F6E6E"><font size="5">FEES AND COSTS</font><br><br>
+                <span class="style1">Costs will be paid by you and will depend on the fee schedule<br>
+                set up by the clerk of courts where you will file your documents.</span>
+              </p>
+              <p>There
+              are no hidden costs or fees.The
+              only time there would be additional fees is if both parties decide they
+              want changes made to the documents.
+              <span style="mso-spacerun: yes">&nbsp;</span>
+              <p><span>
+              If changes are requested, there will be a $75.00 re-draft fee to
+              make the change. Obviously if the change is necessary due to a drafting
+              error on my part, there would be no charge.&nbsp;
+              </span></p>
+              <font>There are only a few simple questions that need to be
+              answered to get started.</font>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  <hr>
+  <p><b><font size="4">Filling out all information as accurately as possible will 
+  assist in processing your case and keep your costs down. Any question that does
+  not apply to your situation please put "N/A" in the blank.</font></b>
+  </p>
+
+  <table class="table">
+    <tbody>    
+      <tr><b>1. client contact information</b><tr>
+      <%= form_for(@client, url: divorce_no_children_no_debts_info_document_only_path) do |client_field| %>
+        <tr><td>Name:</td><td><%= client_field.text_field :name%></td></tr>
+        <tr><td>work phone:</td><td><%= client_field.text_field :work_phone %> </td></tr>
+        <tr><td>home phone:</td><td><%= client_field.text_field :home_phone %> </td></tr>
+        <tr><td>Fax:</td><td><%= client_field.text_field :fax %></td></tr>
+        <tr><td>Email:</td><td><%= client_field.text_field :email %> </td></tr>
+        <%= client_field.fields_for @client_address do |client_address_field | %>
+          <tr><td>Street Address:</td><td><%= client_address_field.text_field :street_address%></td></tr>
+          <tr><td> Address (cont.):</td><td><%= client_address_field.text_field :address %> </td></tr>
+          <tr><td>city:</td><td><%= client_address_field.text_field :city %> </td></tr>
+          <tr><td>state:</td><td><%= client_address_field.text_field :state %> </td></tr>
+          <tr><td>zipcode:</td><td><%= client_address_field.text_field :zipcode %> </td></tr>
+        <% end %>
+        <h4><b>2. Spouse contact information</b><h4>
+        <%= client_field.fields_for @spouse do |spouse_field| %>  
+          <tr><td>Name:</td><td><%= spouse_field.text_field :name%></td></tr>       
+          <tr><td>work phone:</td><td><%= spouse_field.text_field :work_phone %> </td></tr>
+          <tr><td>home phone:</td><td><%= spouse_field.text_field :home_phone %> </td></tr>
+          <tr><td>Fax:</td><td><%= spouse_field.text_field :fax %> </td></tr>
+          <tr><td>Email:</td><td><%= spouse_field.text_field :email %> </td></tr>
+          <%= spouse_field.fields_for @spouse_address do |spouse_address_field| %>
+            <tr><td>Street Address:</td><td><%= spouse_address_field.text_field :street_address%></td></tr>
+            <tr><td>Address (cont.):</td><td><%= spouse_address_field.text_field :address %></td></tr>
+            <tr><td>city:</td><td><%= spouse_address_field.text_field :city %> </td></tr>
+            <tr><td>state:</td><td><%= spouse_address_field.text_field :state %> </td></tr>
+            <tr><td>zipcode:</td><td><%= spouse_address_field.text_field :zipcode %> </td></tr>
+          <% end %>
+        <% end %>        
+        <tr><td><%= client_field.submit %></td></tr>
+      <% end %>  
+    </tbody>
+  </table>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
